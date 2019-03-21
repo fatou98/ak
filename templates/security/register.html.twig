@@ -1,0 +1,52 @@
+{% extends 'baseauthente.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+
+	
+	<div class="error-pagewrap">
+		<div class="error-page-int">
+			<div class="text-center custom-login">
+				<h3>Inscription</h3>
+			</div>
+			<div class="content-error">
+				<div class="hpanel">
+                    <div class="panel-body" >
+                    <div class="col-6" style="width:50%;">
+                    {% block flash %}
+            {% for flash_message in app.session.flashbag.get('success') %}
+                <div class="container alert alert-success" role="alert">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            {% for flash_message in app.session.flashbag.get('info') %}
+                <div class="container alert alert-info" role="alert">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            {% for flash_message in app.session.flashbag.get('warning') %}
+                <div class="container alert alert-warning" role="alert">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            {% for flash_message in app.session.flashbag.get('danger') %}
+                <div class="container alert alert-danger" role="alert">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+        {% endblock %}
+                    </div>
+    {{form(form)}}
+                              
+                              
+                             <button class="btn btn-danger btn-block">Annuler</button> </div>
+                    </div>
+                </div>
+			</div>
+			<div class="text-center login-footer">
+				<p>Copyright © 2019. All rights reserved. Template by <a href="#">AYFATECH</a></p>
+			</div>
+		</div>   
+    </div>
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modifier un étudiant{% endblock %}
+{% block body %}
+    <div class="single-pro-review-area mt-t-30 mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="product-payment-inner-st">
+                        <ul class="tab-review-design" id="myTabedu1">
+                            <li class="active">
+                                <a href="#description">Information personnelle</a>
+                            </li>
+                            <li>
+                                <a href="#reviews">
+                                    Information du compte</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content custom-product-edit" id="myTabContent">
+                            <div class="product-tab-list tab-pane fade active in" id="description">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="review-content-section">
+                                            <div class="pro-ad">
+                                                <form class="dropzone dropzone-custom needsclick add-professors" enctype="multipart/form-data" id="demo1-upload" method="POST">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input class="form-control" value="{{etudiant.firtname}}" name="firstname" placeholder="Prénom" type="text"></div>
+                                                                <div class="form-group">
+                                                                    <input class="form-control" value="{{etudiant.lastname}}" name="lastname" placeholder="Nom" type="text"></div>
+                                                                    <div class="form-group">
+                                                                        <input class="form-control" value="{{etudiant.address}}" name="adresseli" placeholder="Adresse" type="text"></div>
+                                                                        <div class="form-group">
+                                                                            <input class="form-control" value="{{etudiant.mobile}}" name="portable" placeholder="Portable" type="number"></div>
+                                                                            <div class="form-group">
+                                                                                <input class="form-control" value="{{etudiant.datenaiss}}" id="finish" name="dateofbirth" placeholder="Date de naissance" type="date"></div>
+                                                                                <div class="form-group">
+                                                                                    <input class="form-control" value="{{etudiant.lieunaiss}}" id="postcode" name="lieunaissance" placeholder="Lieu de naissance" type="text"></div>
+                                                                                    <br>
+                                                                                        </div>
+                                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                                            <div class="form-group res-mg-t-15">
+                                                                                                <textarea name="description" placeholder="Description"></textarea>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <select class="form-control" selected="{{etudiant.genre}}" name="gender" value="{{etudiant.genre}}">
+                                                                                                    <option disabled="" value="none">
+                                                                                                        Selectionnez le genre</option>
+                                                                                                    <option value="Masculin">Masculin</option>
+                                                                                                    <option value="Féminin">Féminin</option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <select class="form-control" selected="{{etudiant.filiere}}" value="{{etudiant.filiere}}" name="filiereid">
+                                                                                                    <option disabled=""  value="none">
+                                                                                                        Selectionnez la filière</option>
+                                                                                                    {% for filiere in filieres %}
+                                                                                                        <option value="{{filiere.id}}">
+                                                                                                            {{filiere.name}}</option>
+                                                                                                    {% endfor %}
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <select class="form-control" selected="{{etudiant.niveau}}" value="{{etudiant.niveau}}" name="niveauid">
+                                                                                                    <option disabled=""  value="none">
+                                                                                                        Selectionnez le niveau</option>
+                                                                                                    {% for niveau in niveaux %}
+                                                                                                        <option value="{{niveau.id}}">
+                                                                                                            {{niveau.libelle}}
+                                                                                                        </option>
+                                                                                                    {% endfor %}
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-lg-12">
+                                                                                            <div class="payment-adress">
+                                                                                                <input class="btn btn-primary waves-effect waves-light" name="ajouter" type="submit" value="Enregistrer"/>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-tab-list tab-pane fade" id="reviews">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                        <div class="review-content-section">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                                    <div class="devit-card-custom">
+                                                                                        <div class="form-group">
+                                                                                            <input class="form-control" placeholder="Identifiant" type="text"></div>
+                                                                                            <div class="form-group">
+                                                                                                <input class="form-control" placeholder="Password" type="password"></div>
+                                                                                                <div class="form-group">
+                                                                                                    <input class="form-control" placeholder="Confirm Password" type="password"></div>
+                                                                                                    <a class="btn btn-primary waves-effect waves-light" href="#!">Enregistrer</a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-tab-list tab-pane fade" id="INFORMATION">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                                    <div class="review-content-section">
+                                                                                        <div class="row">
+                                                                                            <div class="col-lg-12">
+                                                                                                <div class="devit-card-custom">
+                                                                                                    <div class="form-group">
+                                                                                                        <input class="form-control" placeholder="Facebook URL" type="url"></div>
+                                                                                                        <div class="form-group">
+                                                                                                            <input class="form-control" placeholder="Twitter URL" type="url"></div>
+                                                                                                            <div class="form-group">
+                                                                                                                <input class="form-control" placeholder="Google Plus" type="url"></div>
+                                                                                                                <div class="form-group">
+                                                                                                                    <input class="form-control" placeholder="Linkedin URL" type="url"></div>
+                                                                                                                    <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            {% endblock %}
+                                                        

@@ -56,6 +56,31 @@ class Etudiant
      */
     private $mobile;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $genre;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Filiere", inversedBy="etudiants")
+     */
+    private $filiere;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Niveau", inversedBy="etudiants")
+     */
+    private $niveau;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $numerocarte;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -156,4 +181,65 @@ class Etudiant
 
         return $this;
     }
+
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(string $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getFiliere(): ?Filiere
+    {
+        return $this->filiere;
+    }
+
+    public function setFiliere(?Filiere $filiere): self
+    {
+        $this->filiere = $filiere;
+
+        return $this;
+    }
+
+    public function getNiveau(): ?Niveau
+    {
+        return $this->niveau;
+    }
+
+    public function setNiveau(?Niveau $niveau): self
+    {
+        $this->niveau = $niveau;
+
+        return $this;
+    }
+
+    public function getNumerocarte(): ?string
+    {
+        return $this->numerocarte;
+    }
+
+    public function setNumerocarte(string $numerocarte): self
+    {
+        $this->numerocarte = $numerocarte;
+
+        return $this;
+    }
+
 }
